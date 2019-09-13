@@ -28,18 +28,18 @@ public class ListUtils {
         if (size < 1) throw new IllegalArgumentException("'size' = "+size+" must be greater than 1");
 
         int listSize = list.size();
-        ArrayList<ArrayList<T>> result = new ArrayList<ArrayList<T>>();
+        List<List<T>> result = new ArrayList<>();
 
         for (int i = 0; i < listSize; i=i+size) {
             if (i + size < listSize) {
-                result.add(new ArrayList<>(list.subList(i, i+size)));
+                result.add(list.subList(i, i+size));
             }
             else {
-                result.add(new ArrayList<>(list.subList(i, listSize)));
+                result.add(list.subList(i, listSize));
             }
         }
 
-        return (List) result;
+        return result;
     }
 
 }

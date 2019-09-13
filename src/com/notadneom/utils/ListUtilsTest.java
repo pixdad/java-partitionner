@@ -2,6 +2,7 @@ package com.notadneom.utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 
 import static org.junit.Assert.*;
 import static  com.notadneom.utils.ListUtils.*;
@@ -10,13 +11,12 @@ public class ListUtilsTest {
 
 
     @org.junit.Test
-    public void partitionWithEmpty() {
-        ArrayList<Integer> list = new ArrayList<>();
+    public void partitionWithEmptyList() {
+        ArrayList<Integer> arraylist = new ArrayList<>();
+        LinkedList<Integer> linkedlist = new LinkedList<>();
 
-        assertEquals(partition(list, 2), new ArrayList<>());
-        assertEquals(partition(list, 3), new ArrayList<>());
-        assertEquals(partition(list, 1), new ArrayList<>());
-
+        assertEquals(partition(arraylist, 2), new ArrayList<>());
+        assertEquals(partition(linkedlist, 3), new LinkedList<>());
     }
 
     @org.junit.Test
@@ -39,7 +39,7 @@ public class ListUtilsTest {
     }
 
     @org.junit.Test
-    public void partitionWithInt() {
+    public void partitionWithInts() {
         ArrayList<Integer> list = new ArrayList<>(Arrays.asList(1,2,3,4,5));
 
         assertEquals(
@@ -58,13 +58,13 @@ public class ListUtilsTest {
     }
 
     @org.junit.Test(expected = NullPointerException.class)
-    public void partitionRaisingNullPointerExceptions() {
+    public void partitionRaisingNullPointerException() {
         ArrayList<Integer> nullList = null;
         partition(nullList, 3);
 
     }
     @org.junit.Test(expected = IllegalArgumentException.class)
-    public void partitionRaisingIllegalArgumentExceptions() {
+    public void partitionRaisingIllegalArgumentException() {
         ArrayList<Integer> list = new ArrayList<>(Arrays.asList(1,2,3,4,5));
         partition(list, 0);
     }
